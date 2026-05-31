@@ -1,9 +1,9 @@
 # Makefile per il setup automatico di i3 e dotfiles
 
-.PHONY: all install-pkgs deploy-configs clean
+.PHONY: all install-pkgs install-aur deploy-configs clean
 
-# Bersaglio principale: fa tutto in sequenza
-all: install-pkgs deploy-configs
+# Bersaglio principale: fa tutto in sequenza (inclusi i pacchetti AUR)
+all: install-pkgs install-aur deploy-configs
 
 # 1. Installazione dei pacchetti da packages.txt
 install-pkgs:
@@ -11,6 +11,18 @@ install-pkgs:
 	@echo " Installazione pacchetti da packages.txt "
 	@echo "========================================="
 	sudo pacman -Syu --needed --noconfirm $$(cat packages.txt)
+
+# 1b. Installazione dei pacchetti AUR da packages-aur.txt
+install-aur:
+	@echo "========================================="
+	@echo " Installazione pacchetti da packages-aur.txt "
+	@echo "========================================="
+	@if ! command -v yay > /dev/null; then \
+		echo "➜ yay non trovato. Lo compilo al volo..."; \
+		git clone https://aur.archlinux.org/yay.git /tmp/yay && \
+		cd /tmp/yay && makepkg -si --noconfirm; \
+	fi
+	yay -S --needed --noconfirm $$(cat packages-aur.txt)
 
 # 2. Copia pulita delle configurazioni nella Home
 deploy-configs:

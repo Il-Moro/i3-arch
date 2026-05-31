@@ -3,7 +3,6 @@ fastfetch
 feh
 i3-wm
 kitty
-ttf-fira-code-nerd
 picom
 pipewire
 pipewire-alsa
