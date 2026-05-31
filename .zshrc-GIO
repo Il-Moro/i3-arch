@@ -1,0 +1,115 @@
+
+
+
+
+
+
+
+
+
+
+# config di GIO
+export PATH="/usr/sbin:$PATH"
+export PATH="$HOME/.npm-global/bin:$PATH"
+autoload -U colors && colors
+
+HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
+setopt APPEND_HISTORY
+setopt SHARE_HISTORY
+
+autoload -Uz compinit
+compinit
+
+zstyle ':completion:*' menu select
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+
+eval "$(starship init zsh)"
+eval "$(zoxide init zsh)"
+
+source <(fzf --zsh)
+bindkey '^R' fzf-history-widget
+
+
+# alias
+alias ls='eza --icons --group-directories-first'
+alias ll='eza -alF --icons --group-directories-first --git'
+alias la='eza -a --icons --group-directories-first'
+alias lt='eza --tree --level=2 --icons'
+
+alias cp='cp -i'
+alias mv='mv -i'
+alias rm='rm -I'
+alias cat='bat --paging=never'
+alias grep='grep --color=auto'
+alias mkdir='mkdir -p'
+alias h='history | grep'
+alias poweroff='sync && sudo systemctl poweroff'
+alias cd='z'
+alias cdi='zi' 
+
+alias pacsyu='sudo pacman -Syu'
+alias pacs='sudo pacman -S'
+alias pacr='sudo pacman -Rns'
+alias pacq='pacman -Q | grep'
+alias paco='sudo pacman -Qtdq | sudo pacman -Rns -'
+alias yays='yay -S'
+alias yayu='yay -Sua --noconfirm'
+
+alias reload='source ~/.zshrc && echo "Config reloaded."'
+alias myip='curl ifconfig.me'
+
+# Makefile
+alias nanotabs="$(which nano)"
+alias nano="$(which nano) --tabstospaces --tabsize=4"
+
+# functions
+extract () {
+  if [ -f $1 ] ; then
+    case $1 in
+      *.tar.bz2)   tar xjf $1     ;;
+      *.tar.gz)    tar xzf $1     ;;
+      *.bz2)       bunzip2 $1     ;;
+      *.rar)       unrar e $1     ;;
+      *.gz)        gunzip $1      ;;
+      *.tar)       tar xf $1      ;;
+      *.tbz2)      tar xjf $1     ;;
+      *.tgz)       tar xzf $1     ;;
+      *.zip)       unzip $1       ;;
+      *.Z)         uncompress $1  ;;
+      *.7z)        7z x $1        ;;
+      *)           echo "'$1' cannot be extracted via extract()" ;;
+    esac
+  else
+    echo "'$1' is not a valid file"
+  fi
+}
+
+function pdf() {
+    local file=$(fd -e pdf . ~/ | fzf --prompt="Cerca PDF: " --layout=reverse)
+    
+    if [ -n "$file" ]; then
+        (zathura "$file" >/dev/null 2>&1 &)
+        kill -9 $PPID
+    fi
+}
+
+
+#fetch
+if command -v nerdfetch &> /dev/null; then
+    nerdfetch
+fi
+
+
+# ?
+bindkey "\e[1;5C" forward-word
+bindkey "\e[1;5D" backward-word
+bindkey '^[[A' history-search-backward
+bindkey '^[[B' history-search-forward
+bindkey ' ' magic-space
+WORDCHARS=${WORDCHARS//\//}
+setopt AUTO_CD
+setopt HIST_FIND_NO_DUPS
+setopt HIST_REDUCE_BLANKS
+setopt HIST_IGNORE_SPACE

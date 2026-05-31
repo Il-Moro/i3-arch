@@ -1,0 +1,40 @@
+# Abilita la riga vuota di spaziatura prima del prompt
+add_newline = true
+
+# Flusso continuo dei blocchi senza frecce esterne
+format = """
+[░▒▓](#7aa2f7)\
+$username\
+[](bg:#3b4261 fg:#7aa2f7)\
+$directory\
+[](fg:#3b4261 bg:#bb9af7)\
+$git_branch\
+$git_status\
+[](fg:#bb9af7)\
+$character"""
+
+[username]
+show_always = true
+style_user = "bg:#7aa2f7 fg:#1d202f bold"
+style_root = "bg:#f7768e fg:#1d202f bold"
+format = '[ $user ]($style)'
+
+[directory]
+style = "bg:#3b4261 fg:#7aa2f7 bold"
+format = "[ 󰉋 $path ]($style)"
+truncation_length = 3
+truncation_symbol = "…/"
+
+[git_branch]
+symbol = " "
+style = "bg:#bb9af7 fg:#1d202f bold"
+format = '[ $symbol$branch ]($style)'
+
+[git_status]
+style = "bg:#bb9af7 fg:#1d202f"
+format = '[$all_status$ahead_behind ]($style)'
+
+[character]
+# Solo uno spazio vuoto dopo l'ultimo triangolo per digitare i comandi
+success_symbol = " "
+error_symbol = " "
