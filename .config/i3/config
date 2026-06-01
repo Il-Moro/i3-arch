@@ -1,5 +1,5 @@
-include ~/.config/i3/wallpaper.conf
 include ~/.config/i3/polybar.conf
+include ~/.config/i3/wallpaper.conf
 include ~/.config/i3/picom.conf
 include ~/.config/i3/rofi.conf
 include ~/.config/i3/autotiling.conf

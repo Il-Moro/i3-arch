@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
 # Termina eventuali istanze già avviate
-killall -q i3bar
 killall -q polybar
 
 # Attendi che i processi siano stati terminati

@@ -18,3 +18,6 @@ xterm
 zram-generator
 zsh
 zsh-completions
+ttf-jetbrains-mono-nerd
+ttf-nerd-fonts-symbols
+pavucontrol

@@ -29,9 +29,16 @@ deploy-configs:
 	@echo "========================================="
 	@echo " Copia dei file di configurazione...     "
 	@echo "========================================="
-	# Crea la cartella .config nella Home se non esiste
+	# Crea le cartelle e file
 	mkdir -p $(HOME)/.config
-	
+	mkdir -p $(HOME)/.config/i3 
+	mkdir -p $(HOME)/.config/kitty 
+	mkdir -p $(HOME)/.config/polybar 
+	mkdir -p $(HOME)/.config/yazi 
+	mkdir -p $(HOME)/.config/rofi
+	touch $(HOME)/.zshrc
+	touch $(HOME)/.xinitrc
+
 	# Copia le cartelle dentro .config (sovrascrive se già esistono)
 	cp -rf .config/i3 $(HOME)/.config/
 	cp -rf .config/kitty $(HOME)/.config/
