@@ -1,0 +1,62 @@
+[manager]
+cwd = { fg = "#ffffff", bold = true }
+
+# File selezionato
+hovered        = { fg = "#ffffff", bg = "#2a2a2a", bold = true }
+previewed      = { fg = "#d0d0d0", bg = "#1a1a1a" }
+selected       = { fg = "#ffffff", bg = "#222222" }
+copied         = { fg = "#d0d0d0", bg = "#2a2a2a", italic = true }
+cut            = { fg = "#909090", bg = "#1a1a1a", italic = true }
+
+# Bordi pannelli
+border_symbol = "│"
+border_style  = { fg = "#303030" }
+
+[status]
+separator_open  = ""
+separator_close = ""
+separator_style = { fg = "#1a1a1a" }
+
+# Barra di stato
+mode_normal = { fg = "#0d0d0d", bg = "#909090", bold = true }
+mode_select = { fg = "#0d0d0d", bg = "#d0d0d0", bold = true }
+mode_unset  = { fg = "#0d0d0d", bg = "#606060", bold = true }
+
+progress_label  = { fg = "#ffffff", bold = true }
+progress_normal = { fg = "#606060", bg = "#1a1a1a" }
+progress_error  = { fg = "#f38ba8", bg = "#1a1a1a" }
+
+[input]
+border   = { fg = "#404040" }
+title    = { fg = "#ffffff" }
+value    = { fg = "#d0d0d0" }
+selected = { fg = "#0d0d0d", bg = "#d0d0d0" }
+
+[completion]
+border   = { fg = "#404040" }
+hovered  = { fg = "#ffffff", bg = "#2a2a2a" }
+selected = { fg = "#ffffff", bg = "#2a2a2a" }
+
+[filetype]
+rules = [
+    # Directory
+    { mime = "inode/directory", fg = "#ffffff", bold = true },
+
+    # Immagini
+    { mime = "image/*", fg = "#b0b0b0" },
+
+    # Video/audio
+    { mime = "video/*", fg = "#909090" },
+    { mime = "audio/*", fg = "#909090" },
+
+    # Archivi
+    { mime = "application/zip",  fg = "#808080" },
+    { mime = "application/gzip", fg = "#808080" },
+    { mime = "application/tar",  fg = "#808080" },
+
+    # Testo/codice
+    { mime = "text/*", fg = "#d0d0d0" },
+
+    # Fallback
+    { mime = "*", fg = "#606060" }
+]

@@ -5,37 +5,30 @@ configuration {
 
 * {
     background-color: transparent;
-    text-color:       white;
-    spacing:          15;
+    text-color:       #d0d0d0;
+    spacing:          10;
 }
 
 #window {
-    font: "System San Francisco Display 14";
-    fullscreen: true;
-    
-    /* Trasparenza per abilitare gli effetti del compositore */
-    transparency: "real"; 
-    
-    /* Sfondo scuro + trasparenza (opacità al 80% con i canali RGBA) */
-    background-color: rgba(46, 40, 52, 0.8); 
-
-    children: [ dummy1, hdum, dummy2 ];
+    font:             "JetBrainsMono Nerd Font 13";
+    fullscreen:       true;
+    transparency:     "real";
+    background-color: rgba(10, 10, 10, 0.75);
+    children:         [ dummy1, hdum, dummy2 ];
 }
 
 #hdum {
     orientation: horizontal;
-    children: [ dummy3, mainbox, dummy4 ];
+    children:    [ dummy3, mainbox, dummy4 ];
 }
 
-/* Elemento generico della lista (non selezionato) */
 element {
-    padding: 10px;
-    border-radius: 8px; 
+    padding:      10px;
+    border-radius: 8px;
+    text-color:   #909090;
 }
 
-/* Elemento selezionato: */
 element selected {
-    /* Sfondo viola molto chiaro e semitrasparente */
-    background-color: rgba(149, 117, 205, 0.25); 
-    text-color:       #e0e0e0;
+    background-color: rgba(255, 255, 255, 0.08);
+    text-color:       #ffffff;
 }

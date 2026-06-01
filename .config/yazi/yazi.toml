@@ -1,10 +1,11 @@
 [manager]
-ratio          = [ 1, 3, 4 ]   # Proporzione colonne: [Genitore, Corrente, Anteprima]
+ratio          = [ 1, 3, 4 ]
 sort_by        = "name"
 sort_sensitive = false
 sort_reverse   = false
 sort_dir_first = true
-show_hidden    = true          # Mostra i file nascosti (i dotfiles!) di default
+show_hidden    = true
+show_symlink   = true
 
 [preview]
 tab_size        = 4
@@ -15,10 +16,15 @@ image_quality   = 75
 sixel_fraction  = 15
 
 [opener]
-# Definisci come aprire i file (es. i video con mpv, i pdf con zathura o quello che usi)
 edit = [
-	{ run = '${EDITOR:-nano} "$@"', block = true, for = "unix" }
+    { run = '${EDITOR:-nano} "$@"', block = true, for = "unix" }
 ]
 play = [
-	{ run = 'mpv "$@"', orphan = true, for = "unix" }
+    { run = 'mpv "$@"', orphan = true, for = "unix" }
 ]
+open = [
+    { run = 'xdg-open "$@"', orphan = true, for = "unix" }
+]
+
+[input]
+cursor_blink = false
