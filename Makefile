@@ -47,7 +47,7 @@ deploy-configs:
 	cp -rf .config/rofi $(HOME)/.config/
 	
 	# Copia i file singoli nella Home
-	cp -f .config/.starship.toml
+	cp -f .config/starship.toml
 	cp -f .zshrc $(HOME)/.zshrc
 	cp -f .xinitrc $(HOME)/.xinitrc
 	
