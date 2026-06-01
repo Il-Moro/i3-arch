@@ -47,18 +47,8 @@ deploy-configs:
 	cp -rf .config/rofi $(HOME)/.config/
 	
 	# Copia i file singoli nella Home
+	cp -f .config/.starship.toml
 	cp -f .zshrc $(HOME)/.zshrc
 	cp -f .xinitrc $(HOME)/.xinitrc
 	
 	@echo "Setup completato con successo!"
-
-# Pulizia opzionale (se vuoi rimuovere i file dalla Home, usa con cautela)
-clean:
-	@echo "Rimozione configurazioni installate..."
-	rm -rf $(HOME)/.config/i3
-	rm -rf $(HOME)/.config/kitty
-	rm -rf $(HOME)/.config/polybar
-	rm -rf $(HOME)/.config/yazi
-	rm -rf $(HOME)/.config/rofi
-	rm -f $(HOME)/.zshrc
-	rm -f $(HOME)/.xinitrc
